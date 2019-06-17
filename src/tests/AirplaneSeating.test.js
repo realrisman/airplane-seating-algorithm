@@ -25,3 +25,16 @@ describe('Validate Input for seats', () => {
     }).toThrow();
   });
 });
+
+describe('Validate input for passengers', () => {
+  it('should throw if passengers is negative number', () => {
+    expect(() => {
+      new AirplaneSeating([[1, 2], [2, 3], -1]);
+    }).toThrow();
+  });
+
+  it('should return number of passengers via method on valid input', () => {
+    const myAirplane = new AirplaneSeating([[1, 2], [3, 4]], 5);
+    expect(myAirplane.passengers).toBe(5);
+  });
+});
