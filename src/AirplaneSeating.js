@@ -15,7 +15,7 @@ export default class AirplaneSeating {
 
     const maxColumns = Math.max(...input.map(arr => arr[1]));
     let seats = [];
-    for (let i = 0; i < maxColumns; i++) {
+    for (let colI = 0; colI < maxColumns; colI++) {
       let block = [];
 
       input.forEach(arr => {
@@ -23,7 +23,7 @@ export default class AirplaneSeating {
         let col = arr[1];
 
         for (let i = 0; i < row; i++) {
-          if (col - i > 0) {
+          if (col - colI > 0) {
             block.push('seat');
           } else {
             block.push('empty');
@@ -34,6 +34,7 @@ export default class AirplaneSeating {
       block = block.slice(0, -1);
       seats.push(block);
     }
+    return seats;
   }
 
   _isValid2dArray(input) {
