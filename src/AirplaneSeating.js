@@ -10,7 +10,7 @@ export default class AirplaneSeating {
 
   _createSeats(input) {
     if (!this._isValid2dArray(input)) {
-      throw new Error("Invalid seat input. Expected 2d array of numbers.");
+      throw new Error('Invalid seat input. Expected 2d array of numbers.');
     }
 
     const maxColumns = Math.max(...input.map(arr => arr[1]));
@@ -24,12 +24,12 @@ export default class AirplaneSeating {
 
         for (let i = 0; i < row; i++) {
           if (col - i > 0) {
-            block.push("seat");
+            block.push('seat');
           } else {
-            block.push("empty");
+            block.push('empty');
           }
         }
-        block.push("aisle");
+        block.push('aisle');
       });
       block = block.slice(0, -1);
       seats.push(block);
@@ -49,9 +49,7 @@ export default class AirplaneSeating {
     }
 
     return input.every(
-      arr =>
-        arr.length === 2 &&
-        arr.every(number => this._isNonNegativeInteger(number))
+      arr => arr.length === 2 && arr.every(number => this._isNonNegativeInteger(number)),
     );
   }
 
@@ -61,9 +59,7 @@ export default class AirplaneSeating {
 
   _validatePassengers(input) {
     if (!this._isNonNegativeInteger(input)) {
-      throw new Error(
-        "Invalid passenger input. Must be a non-negative number."
-      );
+      throw new Error('Invalid passenger input. Must be a non-negative number.');
     }
     return input;
   }
@@ -71,8 +67,8 @@ export default class AirplaneSeating {
   get autoAssignedSeats() {
     this._assignAllSeats();
     return {
-        seats: this.assignedSeats,
-        remainingPassengers: this.remainingPassengers
+      seats: this.assignedSeats,
+      remainingPassengers: this.remainingPassengers,
     };
   }
 
@@ -91,10 +87,7 @@ export default class AirplaneSeating {
           return;
         }
         if (seatI > 0 && seatI < row.length) {
-          if (
-            seat === "seat" &&
-            (row[seatI - 1] === "aisle" || row[seatI + 1] === "aisle")
-          ) {
+          if (seat === 'seat' && (row[seatI - 1] === 'aisle' || row[seatI + 1] === 'aisle')) {
             seats[rowI][seatI] = this.nextSeatNumber;
             this.nextSeatNumber++;
             this.remainingPassengers--;
@@ -113,7 +106,7 @@ export default class AirplaneSeating {
         if (this.remainingPassengers < 1) {
           return;
         }
-        if (seat === "seat" && (seatI === 0 || seatI === row.length - 1)) {
+        if (seat === 'seat' && (seatI === 0 || seatI === row.length - 1)) {
           seats[rowI][seatI] = this.nextSeatNumber;
           this.nextSeatNumber++;
           this.remainingPassengers--;
@@ -132,12 +125,12 @@ export default class AirplaneSeating {
           return;
         }
         if (
-          seat === "seat" &&
+          seat === 'seat' &&
           !(
             seatI === 0 ||
             seatI === row.length - 1 ||
-            row[seatI - 1] === "aisle" ||
-            row[seatI + 1] === "aisle"
+            row[seatI - 1] === 'aisle' ||
+            row[seatI + 1] === 'aisle'
           )
         ) {
           seats[rowI][seatI] = this.nextSeatNumber;
