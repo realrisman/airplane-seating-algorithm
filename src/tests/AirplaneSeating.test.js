@@ -38,3 +38,13 @@ describe('Validate input for passengers', () => {
     expect(myAirplane.passengers).toBe(5);
   });
 });
+
+describe('Create seats', () => {
+  it('should return an array of seats', () => {
+    const airplane = new AirplaneSeating([[3, 1], [2, 2], [2, 1]]);
+    expect(airplane.seats).toEqual([
+      ['seat', 'seat', 'seat', 'aisle', 'seat', 'seat', 'aisle', 'seat', 'seat'],
+      ['empty', 'empty', 'empty', 'aisle', 'seat', 'seat', 'aisle', 'empty', 'empty'],
+    ]);
+  });
+});
