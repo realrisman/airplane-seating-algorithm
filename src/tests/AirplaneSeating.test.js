@@ -87,3 +87,22 @@ describe('Assign window seats', () => {
     ]);
   });
 });
+
+describe('Assign middle seats', () => {
+  it('should return assigned middle seats', () => {
+    const airplane = new AirplaneSeating([[3, 1], [2, 2]], 5);
+    airplane._asignMiddleSeats();
+    expect(airplane.assignedSeats).toEqual([
+      ['seat', 1, 'seat', 'aisle', 'seat', 'seat'],
+      ['empty', 'empty', 'empty', 'aisle', 'seat', 'seat'],
+    ]);
+  });
+
+  it('should return assigned middle seats only for the number of passengers', () => {
+    const airplane = new AirplaneSeating([[4, 1], [5, 1]], 2);
+    airplane._asignMiddleSeats();
+    expect(airplane.assignedSeats).toEqual([
+      ['seat', 1, 2, 'seat', 'aisle', 'seat', 'seat', 'seat', 'seat', 'seat'],
+    ]);
+  });
+});
