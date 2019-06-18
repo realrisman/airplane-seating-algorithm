@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import AirplaneSeating from './logic/AirplaneSeating';
 import Seats from './components/Seats';
 
-import { inputSeats, inputPassengers } from './helper/Input';
+import { inputSeats, inputPassengers } from './constants/Input';
 
 import './App.scss';
 
