@@ -1,9 +1,9 @@
-import { isValid2dArray, validatePassengers } from '../helper/Validation';
+import { isValid2dArray, isValidPassengers } from '../helper/Validation';
 
 export default class AirplaneSeating {
   constructor(seats, passengers = 0) {
     this.seats = this._createSeats(seats);
-    this.passengers = validatePassengers(passengers);
+    this.passengers = isValidPassengers(passengers);
     this.remainingPassengers = this.passengers;
     this.assignedSeats = this.seats;
   }

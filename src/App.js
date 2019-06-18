@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AirplaneSeating from './logic/AirplaneSeating';
 import Seats from './components/Seats';
-
+import ModalInput from './components/ModalInput';
 import { inputSeats, inputPassengers } from './constants/Input';
 
 import './App.scss';
@@ -26,6 +26,7 @@ class App extends Component {
       <div>
         <h1>Airplane Seating Algorithm</h1>
         <Seats seatingData={this.state.seatingData} />
+        <ModalInput createNewPlane={this.createNewPlane} />
       </div>
     );
   }
