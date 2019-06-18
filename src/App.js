@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import AirplaneSeating from './AirplaneSeating';
+import Seats from './components/Seats';
+
+import { inputSeats, inputPassengers } from './helper/Input';
+
 import './App.scss';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    seatingData: null,
+  };
+
+  componentDidMount = () => {
+    this.createNewPlane(inputSeats, inputPassengers);
+  };
+
+  createNewPlane = (inputSeats, inputPassengers) => {
+    const airplane = new AirplaneSeating(inputSeats, inputPassengers);
+    const seatingData = airplane.autoAssignedSeats;
+    this.setState({ seatingData });
+  };
+
+  render() {
+    return (
+      <div className="plane">
+        <div className="cockpit">
+          <h1>Front of Plane</h1>
+        </div>
+        <div className="exit exit--front fuselage"></div>
+        <Seats seatingData={this.state.seatingData} />
+        <div className="exit exit--back fuselage"></div>
+      </div>
+    );
+  }
 }
 
 export default App;
