@@ -1,4 +1,4 @@
-import AirplaneSeating from './../AirplaneSeating';
+import AirplaneSeating from '../logic/AirplaneSeating';
 
 describe('Validate Input for seats', () => {
   it('should throw if input is empty array', () => {
