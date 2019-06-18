@@ -67,3 +67,23 @@ describe('Assign aisle seats', () => {
     ]);
   });
 });
+
+describe('Assign window seats', () => {
+  it('should return assigned window seats', () => {
+    const airplane = new AirplaneSeating([[3, 1], [2, 2]], 5);
+    airplane._assignWindowSeats();
+    expect(airplane.assignedSeats).toEqual([
+      [1, 'seat', 'seat', 'aisle', 'seat', 2],
+      ['empty', 'empty', 'empty', 'aisle', 'seat', 3],
+    ]);
+  });
+
+  it('should return assigned window seats only for the number of passengers', () => {
+    const airplane = new AirplaneSeating([[2, 2], [2, 1], [2, 1]], 2);
+    airplane._assignWindowSeats();
+    expect(airplane.assignedSeats).toEqual([
+      [1, 'seat', 'aisle', 'seat', 'seat', 'aisle', 'seat', 2],
+      ['seat', 'seat', 'aisle', 'empty', 'empty', 'aisle', 'empty', 'empty'],
+    ]);
+  });
+});
