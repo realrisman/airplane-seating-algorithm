@@ -1,4 +1,4 @@
-import { isValid2dArray, validatePassengers } from './helper/Validation';
+import { isValid2dArray, validatePassengers } from '../helper/Validation';
 
 export default class AirplaneSeating {
   constructor(seats, passengers = 0) {
