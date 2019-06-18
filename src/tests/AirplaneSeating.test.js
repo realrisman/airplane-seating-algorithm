@@ -126,3 +126,13 @@ describe('Assign all seats', () => {
     ]);
   });
 });
+
+describe('Get auto assigned seats', () => {
+  it('should return an object with assigned seats and remaining passengers', () => {
+    const airplane = new AirplaneSeating([[4, 1], [5, 1]], 5);
+    expect(airplane.autoAssignedSeats).toEqual({
+      remainingPassengers: 0,
+      seats: [[3, 5, 'seat', 1, 'aisle', 2, 'seat', 'seat', 'seat', 4]],
+    });
+  });
+});
