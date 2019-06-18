@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AirplaneSeating from './AirplaneSeating';
+import AirplaneSeating from './logic/AirplaneSeating';
 import Seats from './components/Seats';
 
 import { inputSeats, inputPassengers } from './helper/Input';
@@ -23,13 +23,9 @@ class App extends Component {
 
   render() {
     return (
-      <div className="plane">
-        <div className="cockpit">
-          <h1>Front of Plane</h1>
-        </div>
-        <div className="exit exit--front fuselage"></div>
+      <div>
+        <h1>Airplane Seating Algorithm</h1>
         <Seats seatingData={this.state.seatingData} />
-        <div className="exit exit--back fuselage"></div>
       </div>
     );
   }
