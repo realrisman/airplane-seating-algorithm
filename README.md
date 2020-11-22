@@ -1,5 +1,5 @@
 # Demo App
-https://airplane-seating-algorithm.risman.xyz/
+https://airplane-seating-algorithm.netlify.app
 
 ## Available Scripts
 
